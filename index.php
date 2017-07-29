@@ -5,11 +5,21 @@
  * Date: 27/07/17
  * Time: 16:31
  */
+<<<<<<< HEAD
 
 require_once('http_lite.php');
 try {
     $h = Http::connect('www.itccompliance.co.uk', NULL, 'https');
     $api = $h->doGet('recruitment-webservice/api/list');
+=======
+/*
+ * Test data
+ */
+require_once('http_lite.php');
+try {
+    $api = Http::connect('www.itccompliance.co.uk', NULL, 'https')
+        ->doGet('recruitment-webservice/api/list');
+>>>>>>> b2765ab54de7a0fabf841e45b76ccd16312838eb
     $products = json_decode($api);
     if (!isset($products->error)) {
         foreach ($products as & $product)
@@ -33,10 +43,16 @@ $product_details = array();
 foreach($prod_keys as $key)
 {
     try {
+<<<<<<< HEAD
         //$info = Http::connect('www.itccompliance.co.uk', NULL, 'https')
         //    ->doGet('recruitment-webservice/api/info', array('id' => $key));
         $api = $h->doGet('recruitment-webservice/api/info', array('id' => $key));
         $details = json_decode($api);
+=======
+        $info = Http::connect('www.itccompliance.co.uk', NULL, 'https')
+            ->doGet('recruitment-webservice/api/info', array('id' => $key));
+        $details = json_decode($info);
+>>>>>>> b2765ab54de7a0fabf841e45b76ccd16312838eb
         if (!isset($details->error)) {
             foreach ($details as & $detail)
             {
